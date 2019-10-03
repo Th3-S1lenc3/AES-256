@@ -6,6 +6,7 @@ import hashlib
 import time
 from Crypto.Cipher import AES
 from Crypto import Random
+import sys
 
 def menu():
     print("AES256 Encryption & Decryption Script V1.0 \n")
@@ -35,6 +36,7 @@ def EncryptMessage():
     another = False
 
     while another == False:
+        print("")
         choice = input("Do you wish to encrypt another message? (Yes / No):")
         choice = choice.lower()
 
@@ -60,6 +62,7 @@ def DecryptMessage():
     another = False
 
     while another == False:
+        print("")
         choice = input("Do you wish to decrypt another message? (Yes / No)")
         choice = choice.lower()
 
