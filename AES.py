@@ -1,6 +1,8 @@
 # AES 256 encryption/decryption using pycrypto library
 # Programmed by TH3_S1LENC3 using code from https://www.quickprogrammingtips.com/python/aes-256-encryption-and-decryption-in-python.html
 
+import getpass
+import os
 import base64
 import hashlib
 import time
@@ -31,7 +33,7 @@ def menu():
 def EncryptMessage():
     # Encrypt secret message
     secretmessage = raw_input("Enter plaintext: ")
-    password = raw_input("Enter Password: ")
+    password = getpass.getpass("Enter Password: ")
 
     encrypted = encrypt(secretmessage, password)
     print(encrypted)
@@ -42,7 +44,7 @@ def EncryptMessage():
 def DecryptMessage():
     # Decrypt secret message
     secretmessage = raw_input("Enter encrypted text: ")
-    password = raw_input("Enter Password: ")
+    password = getpass.getpass("Enter Password: ")
 
     decrypted = decrypt(secretmessage, password)
     print(bytes.decode(decrypted))
@@ -58,6 +60,7 @@ def Continue():
     if choice == "yes":
         menu()
     if choice == "no":
+        os.system('cls' if os.name == 'nt' else 'clear')
         sys.exit(0)
     else:
         print("Please enter Yes or No. \n")
