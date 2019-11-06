@@ -9,14 +9,16 @@ import time
 from Crypto.Cipher import AES
 from Crypto import Random
 import sys
+import re
 
 def menu():
-    print("AES256 Encryption & Decryption Script Version 2.0 \n")
+    print("AES256 Encryption & Decryption Script Version 2.1 \n")
     print("1. Encrypt a Message")
     print("2. Decrypt a Message")
     print("3. ReadMe")
-    print("4. Exit \n")
-    choice = raw_input("Enter Your Choice [1,2,3,4]: ")
+    print("4. Changelog")
+    print("5. Exit \n")
+    choice = raw_input("Enter Your Choice [1,2,3,4,5]: ")
 
     if choice == "1":
         EncryptMessage()
@@ -28,6 +30,9 @@ def menu():
         ReadMe()
 
     if choice == "4":
+        Changelog()
+
+    if choice == "5":
         sys.exit()
 
     else:
@@ -43,9 +48,14 @@ def EncryptMessage():
         checkpassword = getpass.getpass("Re-enter Password: ")
 
         if password == checkpassword:
-            encrypted = encrypt(secretmessage, password)
-            print(encrypted)
-            passwordsmatch = True
+            CheckPassword(password)
+            if CheckPassword == True:
+                print("Password does not meet criteria")
+            else:
+                encrypted = encrypt(secretmessage, password)
+                print(encrypted)
+                passwordsmatch = True
+                break
         else:
             print("Error! Passwords do not match. Please try again!")
     time.sleep(1)
@@ -60,9 +70,14 @@ def DecryptMessage():
         checkpassword = getpass.getpass("Re-enter Password: ")
 
         if password == checkpassword:
-            decrypted = decrypt(secretmessage, password)
-            print(bytes.decode(decrypted))
-            passwordsmatch = True
+            CheckPassword(password)
+            if CheckPassword == True:
+                print("Password does not meet criteria")
+            else:
+                decrypted = decrypt(secretmessage, password)
+                print(bytes.decode(decrypted))
+                passwordsmatch = True
+                break
         else:
             print("Error! Passwords do not match. Please try again!")
     time.sleep(1)
@@ -70,10 +85,17 @@ def DecryptMessage():
 
 def ReadMe():
     with open("README.md") as f:
+        print("")
         print(f.read())
+        time.sleep(5)
         menu()
 
-
+def Changelog():
+    with open("Changelog.txt") as f:
+        print("")
+        print(f.read())
+        time.sleep(5)
+        menu()
 
 def Continue():
     # Asks the users if they wish to encrypt/decrypt another file
@@ -88,6 +110,52 @@ def Continue():
     else:
         print("Please enter Yes or No. \n")
         Continue()
+
+def CheckPassword(password):
+    flag = 0
+    while True:
+        if (len(password)<8):
+            flag = -1
+            break
+        elif not re.search("[a-z]", password):
+            flag = -2
+            break
+        elif not re.search("[A-Z]", password):
+            flag = -3
+            break
+        elif not re.search("[0-9]", password):
+            flag = -4
+            break
+        elif not re.search("[_@$]", password):
+            flag = -5
+            break
+        elif re.search("\s", password):
+            flag = -6
+            break
+        else:
+            flag = 0
+            break
+
+    if flag == -1:
+        print("Password Must Be 8 Characters")
+        return True
+    if flag == -2:
+        print("Password Must Contain Lower Case ASCII Characters")
+        return True
+    if flag == -3:
+        print("Password Must Contain Upper Case ASCII Characters")
+        return True
+    if flag == -4:
+        print("Password Must Contain Numbers")
+        return True
+    if flag == -5:
+        print("Password Must Contain Special Characters")
+        return True
+    if flag == -6:
+        print("Password Must Not Contain Spaces")
+        return True
+    else:
+        return False
 
 
 #AES Encryption & Decryption
