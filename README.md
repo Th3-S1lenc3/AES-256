@@ -11,9 +11,9 @@ Please enjoy using this tool.
 
 Requires -
 
-python 2.7
+python 3
 
-Pycrypto - Windows installer included - Others: pip install pycrypto
+Pycryptodome - pip install pycryptodomex
 
 Hashlib - pip install hashlib
 
