@@ -13,7 +13,7 @@ Requires -
 
 python 2.7
 
-Pycrypto - Windows installer included - Others: pip install pycrypto
+Pycryptodome - pip install pycryptodomex
 
 Hashlib - pip install hashlib
 
