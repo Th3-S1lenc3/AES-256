@@ -6,8 +6,8 @@ import os
 import base64
 import hashlib
 import time
-from Crypto.Cipher import AES
-from Crypto import Random
+from Cryptodome.Cipher import AES
+from Cryptodome import Random
 import sys
 import re
 
