@@ -2,7 +2,7 @@
 
 //--------------------------------------------------
 
-AES256 Encryption & Decryption Script Version 2.0
+AES256 Encryption & Decryption Script Version 2.1
 Coded by TH3_S1LENC3 and using code from https://www.quickprogrammingtips.com/python/aes-256-encryption-and-decryption-in-python.html
 This tool is designed to encrypt & decrypt text using AES.
 Please enjoy using this tool.
@@ -11,7 +11,7 @@ Please enjoy using this tool.
 
 Requires -
 
-python 3
+python 2.1
 
 Pycryptodome - pip install pycryptodomex
 
