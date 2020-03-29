@@ -16,7 +16,7 @@ from aes import algorithms
 
 def menu():
     mode = get_mode()
-    print("AES256 Encryption & Decryption Script Version 3.0 \n")
+    print("AES256 Encryption & Decryption Script Version 3.1 \n")
     print("Mode: " + mode)
     print("1. Encrypt")
     print("2. Decrypt")
