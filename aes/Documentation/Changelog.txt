@@ -1,0 +1,32 @@
+//--------------------------------------------------------------------------
+
+Version 3.0
+
+Ported to Python 3
+Change AES Mode to GCM
+Removed Redundant / Unneeded Modules - HashLib, base64
+Added File Encryption & Decryption - Not Currently Functional
+Added Try/Except Blocks to ReadMe & Changelog Functions to catch error
+Moved Encryption Algorithms to separate file
+Repurposed Continue Function
+
+//--------------------------------------------------------------------------
+
+Version 2.1
+
+Added password checker to ensure secure passwords
+
+//--------------------------------------------------------------------------
+
+Version 2.0
+
+Added Getpass to not echo password to terminal
+Added Code to check if both passwords entered are identical
+
+//--------------------------------------------------------------------------
+
+Version 1.0
+
+Original Script to encrypt plaintext using AES256
+
+//--------------------------------------------------------------------------

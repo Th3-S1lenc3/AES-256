@@ -1,0 +1,5 @@
+Add message authentication for file decryption in GCM_algorithms line 60 - 70
+Add CLI Module
+Write Help Menu
+Test Program
+Standardize Code
